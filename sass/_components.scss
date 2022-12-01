@@ -1,0 +1,293 @@
+.card__front--container,
+.card__back--container {
+  max-width: 50rem;
+  position: absolute;
+
+  @include respond(for-laptop-only) {
+    max-width: 45rem;
+  }
+
+  @include respond(for-laptop-small) {
+    max-width: 42rem;
+  }
+
+  @include respond(tablet-landscape) {
+    max-width: 60rem;
+  }
+
+  @include respond(phone) {
+    max-width: 50rem;
+  }
+
+  @include respond(big-desktop) {
+    max-width: 80rem;
+  }
+}
+
+.card__front--container {
+  top: 200px;
+  left: 250px;
+
+  @include respond(for-laptop-only) {
+    top: 190px;
+    left: 150px;
+  }
+
+  @include respond(for-laptop-small) {
+    top: 150px;
+    left: 140px;
+  }
+
+  @include respond(tablet-landscape) {
+    top: 300px;
+    left: 200px;
+  }
+
+  @include respond(tablet-portrait) {
+    top: 350px;
+    left: 100px;
+  }
+
+  @include respond(phone) {
+    top: 155px;
+    left: 20px;
+  }
+
+  @include respond(phone-medium) {
+    top: 145px;
+    right: 60px;
+  }
+
+  @include respond(big-desktop) {
+    top: 250px;
+    left: 350px;
+  }
+
+  & .card__front--img {
+    box-shadow: 2rem 5rem 6rem rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 100%;
+  }
+
+  & .card__front--detailed {
+    width: 100%;
+    height: 100%;
+    padding: 3rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    & .circle--container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+
+      & .circle-big {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        padding: 0.5rem;
+        background-color: $color-secondary-light;
+        border-radius: 50%;
+
+        @include respond(for-laptop-small) {
+          width: 45px;
+          height: 45px;
+        }
+
+        @include respond(tablet-landscape) {
+          width: 55px;
+          height: 55px;
+        }
+
+        @include respond(phone) {
+          width: 35px;
+          height: 35px;
+        }
+      }
+
+      & .circle-small {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        padding: 0.5rem;
+        border: 1px solid $color-secondary-light;
+        border-radius: 50%;
+
+        @include respond(for-laptop-small) {
+          width: 25px;
+          height: 25px;
+        }
+
+        @include respond(tablet-landscape) {
+          width: 40px;
+          height: 40px;
+        }
+
+        @include respond(phone) {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    & .card__info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      & #card__front--number {
+        font-size: 3rem;
+        letter-spacing: 2px;
+        color: $color-secondary-light;
+        font-weight: 100;
+
+        @include respond(for-laptop-small) {
+          font-size: 2.5rem;
+          letter-spacing: 3px;
+        }
+
+        @include respond(tablet-landscape) {
+          font-size: 4rem;
+          letter-spacing: 2px;
+        }
+
+        @include respond(phone) {
+          font-size: 2.5rem;
+          letter-spacing: 4px;
+        }
+
+        @include respond(phone-medium) {
+          font-size: 2rem;
+        }
+      }
+
+      & .card__person {
+        color: $color-secondary-light;
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        display: flex;
+        text-transform: uppercase;
+        justify-content: space-between;
+
+        @include respond(tablet-landscape) {
+          font-size: 2rem;
+          letter-spacing: 3px;
+        }
+      }
+    }
+  }
+}
+
+.card__back--container {
+  bottom: 150px;
+  left: 350px;
+
+  @include respond(for-laptop-only) {
+    bottom: 180px;
+    left: 250px;
+  }
+
+  @include respond(for-laptop-small) {
+    bottom: 150px;
+    left: 220px;
+  }
+
+  @include respond(tablet-landscape) {
+    bottom: 1000px;
+    left: 300px;
+  }
+
+  @include respond(tablet-portrait) {
+    bottom: 600px;
+    left: 200px;
+  }
+
+  @include respond(phone) {
+    top: 40px;
+    left: 35px;
+  }
+
+  @include respond(phone-medium) {
+    top: 40px;
+    right: 20px;
+  }
+
+  @include respond(big-desktop) {
+    bottom: 430px;
+    left: 450px;
+  }
+
+  & .card__back--img {
+    box-shadow: 2rem 5rem 6rem rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 100%;
+
+    @include respond(tablet-landscape) {
+      z-index: -2;
+    }
+  }
+
+  & .card__back--detailed {
+    width: 100%;
+    height: 100%;
+    padding: 5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-content: flex-end;
+
+    @include respond(for-laptop-only) {
+      top: 55px;
+    }
+
+    @include respond(for-laptop-small) {
+      top: 45px;
+    }
+
+    @include respond(tablet-landscape) {
+      top: 70px;
+    }
+
+    @include respond(phone) {
+      top: 50px;
+    }
+
+    @include respond(phone-medium) {
+      top: 40px;
+    }
+
+    & #card__back--number {
+      color: $color-secondary-light;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+
+      @include respond(for-laptop-only) {
+        font-size: 2.5rem;
+      }
+
+      @include respond(for-laptop-small) {
+        font-size: 2.5rem;
+      }
+
+      @include respond(tablet-landscape) {
+        font-size: 2.5rem;
+      }
+
+      @include respond(phone) {
+        font-size: 2rem;
+      }
+    }
+  }
+}

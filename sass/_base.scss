@@ -1,0 +1,145 @@
+@font-face {
+  font-family: customFont;
+  src: url(../../assets/font/SpaceGrotesk-Medium.ttf);
+}
+
+//  Colors
+$color-primary-light: #6448fe;
+$color-primary-dark: #600594;
+
+$color-secondary-light: #ffffff;
+$color-secondary-dark: #dedddf;
+
+$color-tertiary-light: #8e8593;
+$color-tertiary-dark: #21092f;
+
+$error: #ff5252;
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone-medium {
+    @media (max-width: 23.44em) {
+      @content;
+    }
+  }
+
+  // respond to max 600px screen size
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  // respond to max 900px screen size
+  @if $breakpoint == tablet-portrait {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  // respond to max 1200px screen size
+  @if $breakpoint == tablet-landscape {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+
+  // respond to max 1400px screen size
+  @if $breakpoint == for-laptop-small {
+    @media (max-width: 87em) {
+      @content;
+    }
+  }
+
+  //respond to min 1400px screen size
+  @if $breakpoint == for-laptop-only {
+    @media (min-width: 87em) {
+      @content;
+    }
+  }
+
+  // respond to min 1800px screen size
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.6rem rgba($color-tertiary-dark, 0.65);
+}
+
+html {
+  font-size: 62.5%;
+
+  @include respond(tablet-landscape) {
+    font-size: 50%;
+  }
+
+  @include respond(tablet-portrait) {
+    font-size: 43.75%;
+  }
+
+  @include respond(phone-medium) {
+    font-size: 37.5%;
+  }
+}
+
+body {
+  font-family: customFont, sans-serif;
+  background-image: url('../../assets/images/bg-main-desktop.png');
+  background-repeat: no-repeat;
+  background-size: 60vh;
+
+  @include respond(for-laptop-only) {
+    background-size: 55vh;
+  }
+
+  @include respond(tablet-landscape) {
+    background-image: url('../assets/images/bg-main-mobile.png');
+    background-size: 100vw;
+  }
+}
+
+.valid-container {
+  max-width: 50rem;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  & .valid-message-container {
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 3rem;
+
+    & .message-one {
+      font-size: 4rem;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      margin-bottom: 2rem;
+      color: $color-tertiary-dark;
+    }
+
+    & .message-two {
+      font-size: 2rem;
+      color: $color-tertiary-light;
+      letter-spacing: 2.5px;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}

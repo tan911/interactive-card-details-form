@@ -1,0 +1,156 @@
+.form__container {
+  width: 100%;
+  max-width: 50rem;
+  position: absolute;
+  top: 300px;
+  right: 500px;
+
+  @include respond(for-laptop-only) {
+    top: 250px;
+    right: 150px;
+  }
+
+  @include respond(for-laptop-small) {
+    top: 200px;
+    right: 100px;
+  }
+
+  @include respond(tablet-landscape) {
+    top: 750px;
+    right: 340px;
+  }
+
+  @include respond(tablet-portrait) {
+    top: 650px;
+    right: 240px;
+  }
+
+  @include respond(phone) {
+    top: 390px;
+    right: 40px;
+  }
+
+  @include respond(phone-medium) {
+    max-width: 55rem;
+    top: 330px;
+    right: 20px;
+  }
+
+  @include respond(big-desktop) {
+    top: 300px;
+    right: 670px;
+  }
+
+  & form {
+    padding: 1rem;
+
+    & .form__input--control {
+      margin-bottom: 4rem;
+      width: 100%;
+      position: relative;
+
+      &.error input {
+        border: 1.5px solid $error;
+      }
+
+      &.success input {
+        border: 1.5px solid $color-primary-dark;
+      }
+
+      & small {
+        position: absolute;
+        bottom: -15px;
+        left: 0;
+        visibility: hidden;
+      }
+
+      &.error small {
+        color: $error;
+        font-family: inherit;
+        font-size: 1.5rem;
+        visibility: visible;
+      }
+
+      &--mmyy {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2rem;
+
+        & .inner__form--control {
+          width: 100%;
+          border: none;
+
+          &--ex {
+            display: flex;
+            gap: 1rem;
+
+            & .exp-input {
+              width: 100%;
+            }
+
+            & label {
+              display: none;
+            }
+
+            & input {
+              // display: inline-block;
+              // width: 100%;
+
+              &:not(:last-child) {
+                margin-right: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    & label,
+    & legend {
+      display: block;
+      color: $color-tertiary-dark;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+
+    & input {
+      width: 100%;
+      padding: 1.5rem;
+      border: 1px solid $color-secondary-dark;
+      border-radius: 8px;
+      outline: none;
+      margin-bottom: 1rem;
+
+      &[type='text'],
+      &[type='number'] {
+        font-size: 1.8rem;
+        color: $color-tertiary-dark;
+        font-family: inherit;
+      }
+
+      &::placeholder {
+        font-size: 2rem;
+        font-family: customFont, sans-serif;
+        color: $color-tertiary-light;
+        letter-spacing: 1px;
+        opacity: 0.6;
+      }
+    }
+  }
+
+  & button {
+    width: 100%;
+    padding: 1.8rem;
+    background-color: $color-tertiary-dark;
+    color: $color-secondary-light;
+    font-family: inherit;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    letter-spacing: 1.5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+}
