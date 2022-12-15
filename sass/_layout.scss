@@ -1,156 +1,258 @@
-.form__container {
+.main {
+  // border: 1px solid red;
   width: 100%;
-  max-width: 50rem;
-  position: absolute;
-  top: 300px;
-  right: 500px;
-
-  @include respond(for-laptop-only) {
-    top: 250px;
-    right: 150px;
-  }
-
-  @include respond(for-laptop-small) {
-    top: 200px;
-    right: 100px;
-  }
-
-  @include respond(tablet-landscape) {
-    top: 750px;
-    right: 340px;
-  }
-
-  @include respond(tablet-portrait) {
-    top: 650px;
-    right: 240px;
-  }
+  margin-top: 2rem;
+  max-width: 56.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 
   @include respond(phone) {
-    top: 390px;
-    right: 40px;
+    gap: 4rem;
   }
 
-  @include respond(phone-medium) {
-    max-width: 55rem;
-    top: 330px;
-    right: 20px;
+  @include respond(tablet) {
+    // justify-content: space-around;
+    gap: 10rem;
+    // margin-top: 0;
   }
 
-  @include respond(big-desktop) {
-    top: 300px;
-    right: 670px;
+  @include respond(laptop-portrait) {
+    margin-top: 0;
+    gap: 7rem;
+    justify-content: space-around;
+    flex-direction: row;
   }
 
-  & form {
-    padding: 1rem;
+  @include respond(desktop) {
+    // margin: 0 250px 0 0;
+    gap: 0;
+    max-width: 75rem;
+  }
+}
 
-    & .form__input--control {
-      margin-bottom: 4rem;
-      width: 100%;
-      position: relative;
+.main__card {
+  // border: 1px solid blue;
+  width: 100%;
+  // margin-top: 2rem;
+  // position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  // justify-content: center;
+  align-items: center;
+  // gap: 1.5rem;
 
-      &.error input {
-        border: 1.5px solid $error;
-      }
-
-      &.success input {
-        border: 1.5px solid $color-primary-dark;
-      }
-
-      & small {
-        position: absolute;
-        bottom: -15px;
-        left: 0;
-        visibility: hidden;
-      }
-
-      &.error small {
-        color: $error;
-        font-family: inherit;
-        font-size: 1.5rem;
-        visibility: visible;
-      }
-
-      &--mmyy {
-        display: flex;
-        gap: 2rem;
-        margin-bottom: 2rem;
-
-        & .inner__form--control {
-          width: 100%;
-          border: none;
-
-          &--ex {
-            display: flex;
-            gap: 1rem;
-
-            & .exp-input {
-              width: 100%;
-            }
-
-            & label {
-              display: none;
-            }
-
-            & input {
-              // display: inline-block;
-              // width: 100%;
-
-              &:not(:last-child) {
-                margin-right: 1rem;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    & label,
-    & legend {
-      display: block;
-      color: $color-tertiary-dark;
-      font-size: 1.4rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 1rem;
-    }
-
-    & input {
-      width: 100%;
-      padding: 1.5rem;
-      border: 1px solid $color-secondary-dark;
-      border-radius: 8px;
-      outline: none;
-      margin-bottom: 1rem;
-
-      &[type='text'],
-      &[type='number'] {
-        font-size: 1.8rem;
-        color: $color-tertiary-dark;
-        font-family: inherit;
-      }
-
-      &::placeholder {
-        font-size: 2rem;
-        font-family: customFont, sans-serif;
-        color: $color-tertiary-light;
-        letter-spacing: 1px;
-        opacity: 0.6;
-      }
-    }
+  @include respond(tablet) {
+    // margin-right: -120px;
+    justify-content: center;
   }
 
-  & button {
+  @include respond(laptop-portrait) {
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  @include respond(desktop) {
+    // margin: 0 250px 0 0;
+    width: 50%;
+  }
+}
+
+.main__card__front {
+  // width: 100%; // larger screen
+  // margin-left: -220px;
+  position: relative;
+  width: 80%;
+  margin-top: -70px;
+  margin-left: -45px;
+  z-index: 10;
+
+  @include respond(phone) {
+    width: 60%;
+    margin-top: -95px;
+  }
+
+  @include respond(tablet) {
+    width: 50%;
+    margin-left: -120px;
+  }
+
+  @include respond(laptop-portrait) {
     width: 100%;
-    padding: 1.8rem;
-    background-color: $color-tertiary-dark;
-    color: $color-secondary-light;
-    font-family: inherit;
-    font-size: 1.5rem;
-    text-transform: capitalize;
-    letter-spacing: 1.5px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+    margin: 0 -10px 0 0;
+  }
+
+  @include respond(laptop-landscape) {
+    margin: 0 200px 0 0;
+    z-index: 0;
+  }
+
+  @include respond(desktop) {
+    // margin: 0 250px 0 0;
+    width: 75%;
+  }
+
+  @include respond(desktop-m) {
+    margin: 0 250px 0 0;
+  }
+}
+
+.main__card__back {
+  position: relative;
+  width: 80%;
+  margin-right: -45px;
+  // border: 1px solid lime;
+  // width: 100%; // larger screen
+  @include respond(phone) {
+    width: 60%;
+    margin-right: -105px;
+  }
+
+  @include respond(tablet) {
+    width: 50%;
+    margin-right: -120px;
+  }
+
+  @include respond(laptop-portrait) {
+    width: 100%;
+    margin: 0 -60px 0 0;
+  }
+
+  @include respond(laptop-landscape) {
+    margin: 0 0 0 0;
+  }
+
+  @include respond(desktop) {
+    width: 75%;
+  }
+
+  @include respond(desktop-m) {
+    margin: 0 100px 0 0;
+  }
+}
+
+.main__thumbnail {
+  box-shadow: 0 1rem 1.5rem rgba($color-tertiary-dark, 0.2);
+}
+
+.main__card__info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  padding: 1.5rem;
+  // border: 1px solid lime;
+}
+
+.main__card__logo {
+  width: 20%;
+}
+
+.main__details {
+  color: $color-secondary-light;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.main__card__number {
+  font-size: 1.9rem;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+
+.main__card__span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.main__forms {
+  width: 90%;
+  // border: 1px solid lime;
+  // padding: 1rem;
+
+  @include respond(phone) {
+    width: 70%;
+    padding: 1rem;
+  }
+
+  @include respond(tablet) {
+    width: 60%;
+  }
+
+  @include respond(laptop-portrait) {
+    width: 100%;
+    // padding: 1.5rem;
+  }
+
+  @include respond(desktop) {
+    // margin: 0 250px 0 0;
+    width: 35%;
+  }
+}
+
+.main__control {
+  // border: 1px solid yellow;
+  position: relative;
+
+  // &.error {
+  //   margin-bottom: 1rem;
+  // }
+
+  &.error input {
+    border: 1px solid $error;
+  }
+
+  &.success input {
+    border: 1px solid $color-secondary-dark;
+  }
+
+  & small {
+    color: $error;
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    visibility: hidden;
+  }
+
+  &.error small {
+    font-size: 0.75rem;
+    visibility: visible;
+  }
+}
+
+.main__fields {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+
+  @include respond(desktop) {
+    gap: 0.5rem;
+  }
+}
+
+.main__control__dates {
+  // border: 1px solid lime;
+
+  // TODO
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  // gap: 0.5rem;
+  // width: 50%; // larger screeen
+  @include respond(phone) {
+    width: 50%;
+  }
+
+  @include respond(desktop-m) {
+    width: 60%;
   }
 }

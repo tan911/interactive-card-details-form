@@ -1,145 +1,169 @@
+// modern css reset - https://piccalil.li/blog/a-modern-css-reset/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// FONTS
 @font-face {
   font-family: customFont;
   src: url(../../assets/font/SpaceGrotesk-Medium.ttf);
 }
 
-//  Colors
-$color-primary-light: #6448fe;
-$color-primary-dark: #600594;
+//  COLORS
+$color-primary-light: hsl(249, 99%, 64%);
+$color-primary-dark: hsl(278, 93%, 30%);
+$color-secondary-light: hsl(0, 0%, 100%);
+$color-secondary-dark: hsl(270, 3%, 87%);
+$color-tertiary-light: hsl(279, 6%, 55%);
+$color-tertiary-dark: hsl(278, 68%, 11%);
+$error: hsl(0, 100%, 66%);
 
-$color-secondary-light: #ffffff;
-$color-secondary-dark: #dedddf;
-
-$color-tertiary-light: #8e8593;
-$color-tertiary-dark: #21092f;
-
-$error: #ff5252;
-
+// QUERIES
 @mixin respond($breakpoint) {
-  @if $breakpoint == phone-medium {
-    @media (max-width: 23.44em) {
-      @content;
-    }
-  }
-
-  // respond to max 600px screen size
+  // 600px up
   @if $breakpoint == phone {
-    @media (max-width: 37.5em) {
+    @media only screen and (min-width: 37.5em) {
       @content;
     }
   }
 
-  // respond to max 900px screen size
-  @if $breakpoint == tablet-portrait {
-    @media (max-width: 56.25em) {
+  // 800px up
+  @if $breakpoint == tablet {
+    @media only screen and (min-width: 50em) {
       @content;
     }
   }
 
-  // respond to max 1200px screen size
-  @if $breakpoint == tablet-landscape {
-    @media (max-width: 75em) {
+  // 900px up
+  @if $breakpoint == laptop-portrait {
+    @media only screen and (min-width: 56.25em) {
       @content;
     }
   }
 
-  // respond to max 1400px screen size
-  @if $breakpoint == for-laptop-small {
-    @media (max-width: 87em) {
+  // 1200px up
+  @if $breakpoint == laptop-landscape {
+    @media only screen and (min-width: 75em) {
       @content;
     }
   }
 
-  //respond to min 1400px screen size
-  @if $breakpoint == for-laptop-only {
-    @media (min-width: 87em) {
+  // 1400px up
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 87.5em) {
       @content;
     }
   }
 
-  // respond to min 1800px screen size
-  @if $breakpoint == big-desktop {
-    @media (min-width: 112.5em) {
+  // 1500px up
+  @if $breakpoint == desktop-m {
+    @media only screen and (min-width: 93.75em) {
       @content;
     }
-  }
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-*:focus {
-  outline: none;
-  box-shadow: 0 0 0 0.6rem rgba($color-tertiary-dark, 0.65);
-}
-
-html {
-  font-size: 62.5%;
-
-  @include respond(tablet-landscape) {
-    font-size: 50%;
-  }
-
-  @include respond(tablet-portrait) {
-    font-size: 43.75%;
-  }
-
-  @include respond(phone-medium) {
-    font-size: 37.5%;
   }
 }
 
 body {
   font-family: customFont, sans-serif;
-  background-image: url('../../assets/images/bg-main-desktop.png');
+  background-image: url('../assets/images/bg-main-mobile.png');
   background-repeat: no-repeat;
-  background-size: 60vh;
-
-  @include respond(for-laptop-only) {
-    background-size: 55vh;
-  }
-
-  @include respond(tablet-landscape) {
-    background-image: url('../assets/images/bg-main-mobile.png');
-    background-size: 100vw;
-  }
-}
-
-.valid-container {
-  max-width: 50rem;
-  margin-top: 4rem;
+  background-size: 100vw;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
 
-  & .valid-message-container {
-    padding: 1rem;
-    text-align: center;
-    margin-bottom: 3rem;
+  @include respond(tablet) {
+    background-size: contain;
+    justify-content: center;
+    align-items: center;
+  }
 
-    & .message-one {
-      font-size: 4rem;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      margin-bottom: 2rem;
-      color: $color-tertiary-dark;
-    }
+  @include respond(laptop-portrait) {
+    background-image: url('../assets/images/bg-main-desktop.png');
+  }
 
-    & .message-two {
-      font-size: 2rem;
-      color: $color-tertiary-light;
-      letter-spacing: 2.5px;
-    }
+  @include respond(desktop-m) {
+    background-size: 70vh;
   }
 }
 
-.hidden {
-  display: none;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }

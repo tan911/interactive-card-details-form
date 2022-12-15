@@ -9,128 +9,109 @@
       type="image/x-icon"
       href="./assets/images/favicon-32x32.png"
     />
-    <link rel="stylesheet" href="css/style.min.css" />
-    <script src="js/app.js" defer></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- <link rel="stylesheet" href="css/style.min.css" /> -->
+    <script defer src="./js/app.js"></script>
     <title>Interactive card</title>
   </head>
   <body>
-    <div class="card__front--container">
-      <img
-        src="./assets/images/bg-card-front.png"
-        alt="front of card"
-        class="card__front--img"
-      />
-      <div class="card__front--detailed">
-        <div class="circle--container">
-          <span class="circle-big"></span>
-          <span class="circle-small"></span>
-        </div>
-        <div class="card__info">
-          <p id="card__front--number" class="card__number">
-            0000 0000 0000 0000
-          </p>
-          <div class="card__person">
-            <p class="card__name">Jane Appleseed</p>
-            <p class="card__date">
-              <span class="card__month">00</span>/<span class="card__year"
-                >00</span
-              >
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card__back--container">
-      <img
-        src="./assets/images/bg-card-back.png"
-        alt="back of card"
-        class="card__back--img"
-      />
-      <div class="card__back--detailed">
-        <p id="card__back--number" class="card__back--number">000</p>
-      </div>
-    </div>
-    <div class="form__container">
-      <form id="form">
-        <div id="card-name-container" class="form__input--control">
-          <label for="name">cardholder name</label>
-          <input
-            type="text"
-            name="name"
-            id="card-name"
-            placeholder="e.g. Jane Appleseed"
-            class="card__name"
-          />
-          <small>error message</small>
-        </div>
-        <div id="card-number-container" class="form__input--control">
-          <label for="card--num">card number</label>
-          <input
-            type="text"
-            name="card--num"
-            id="card-number"
-            placeholder="e.g. 1234 5678 9123 0000"
-            maxlength="19"
-            class="card__number"
-          />
-          <small>error message</small>
-        </div>
-        <div class="form__input--control form__input--control--mmyy">
-          <fieldset class="inner__form--control inner__form--control--ex">
-            <legend>exp. date (MM/YY)</legend>
-            <div class="exp-input">
-              <label for="month">month</label>
-              <input
-                type="number"
-                id="month"
-                name="month"
-                placeholder="MM"
-                min="1"
-                max="12"
-                class="card__month"
-              />
-              <small>error message</small>
-            </div>
-            <div class="exp-input">
-              <label for="year">year</label>
-              <input
-                type="number"
-                id="year"
-                name="year"
-                placeholder="YY"
-                class="card__year"
-              />
-              <small>error message</small>
-            </div>
-          </fieldset>
-          <div class="inner__form--control inner__form--control--cvc">
-            <label for="cvc">CVC</label>
-            <input
-              type="text"
-              name="cvc"
-              id="cvc"
-              placeholder="e.g. 123"
-              class="card__back--number"
-            />
-            <small>error message</small>
-          </div>
-        </div>
-        <button type="submit" id="btn">confirm</button>
-      </form>
-      <div id="complete" class="valid-container hidden">
-        <div class="icon-complete-container">
+    <main class="main">
+      <div class="main__card">
+        <div class="main__card__front">
           <img
-            src="./assets/images/icon-complete.svg"
-            alt="check mark"
-            class="icon-complete"
+            class="main__thumbnail"
+            src="./assets/images/bg-card-front.png"
+            alt="card front"
+          />
+          <div class="main__card__info">
+            <img
+              class="main__card__logo"
+              src="./assets/images/card-logo.svg"
+              alt="logo"
+            />
+            <div class="main__details">
+              <p class="main__card__number">0000 0000 0000 0000</p>
+              <div class="main__card__span">
+                <p class="main__card__name">jane appleseed</p>
+                <p class="main__card__date"><span>00</span>/<span>00</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main__card__back">
+          <img
+            class="main__thumbnail"
+            src="./assets/images/bg-card-back.png"
+            alt="card back"
           />
         </div>
-        <div class="valid-message-container">
-          <p class="message-one">thank you!</p>
-          <p class="message-two">We've added your details</p>
-        </div>
-        <button>Continue</button>
       </div>
-    </div>
+      <div class="main__forms">
+        <form>
+          <div class="main__control">
+            <label for="name">cardholder name</label>
+            <input
+              id="name"
+              type="text"
+              name="cardname"
+              aria-describedby="name-required"
+              placeholder="e.g. Jovan Lanutan"
+            />
+            <small id="name-required" aria-live="polite"
+              >Wrong format, numbers only</small
+            >
+          </div>
+          <div class="main__control">
+            <label for="number">card number</label>
+            <input
+              id="number"
+              type="text"
+              name="cardname"
+              aria-describedby="number-required"
+              placeholder="e.g. 1234 5678 9123 0000"
+            />
+            <small id="number-required" aria-live="polite"></small>
+          </div>
+          <div class="main__fields">
+            <fieldset class="main__control main__control__dates">
+              <legend>exp. date (mm/yy)</legend>
+              <div>
+                <label for="month" class="sr-only">month</label>
+                <input
+                  id="month"
+                  type="text"
+                  aria-describedby="required-input"
+                  placeholder="MM"
+                  maxlength="2"
+                />
+              </div>
+              <div>
+                <label for="year" class="sr-only">year</label>
+                <input
+                  id="year"
+                  type="text"
+                  aria-describedby="required-input"
+                  placeholder="YY"
+                  maxlength="2"
+                />
+              </div>
+              <small id="required-input" aria-live="polite"></small>
+            </fieldset>
+            <div class="main__control">
+              <label for="cvc">cvc</label>
+              <input
+                id="cvc"
+                type="text"
+                aria-describedby="required-cvc"
+                placeholder="e.g 123"
+                maxlength="3"
+              />
+              <small id="required-cvc" aria-live="polite"></small>
+            </div>
+          </div>
+          <button type="button" id="btn">confirm</button>
+        </form>
+      </div>
+    </main>
   </body>
 </html>
