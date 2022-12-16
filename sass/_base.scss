@@ -81,6 +81,12 @@ select {
   src: url(../../assets/font/SpaceGrotesk-Medium.ttf);
 }
 
+:root {
+  --font-size-xs: clamp(0.75rem, calc(0.125vw + 0.703rem), 0.813rem);
+  --font-size-s: clamp(0.813rem, calc(2.5vw + 0.344rem), 1.125rem);
+  --font-size-m: clamp(1.125rem, calc(1.5vw + 0.563rem), 1.9rem);
+}
+
 //  COLORS
 $color-primary-light: hsl(249, 99%, 64%);
 $color-primary-dark: hsl(278, 93%, 30%);
@@ -92,6 +98,13 @@ $error: hsl(0, 100%, 66%);
 
 // QUERIES
 @mixin respond($breakpoint) {
+  // 320px up
+  @if $breakpoint == phone-xs {
+    @media only screen and (min-width: 20em) {
+      @content;
+    }
+  }
+
   // 600px up
   @if $breakpoint == phone {
     @media only screen and (min-width: 37.5em) {

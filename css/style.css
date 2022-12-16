@@ -65,6 +65,11 @@ select {
   font-family: customFont;
   src: url(../../assets/font/SpaceGrotesk-Medium.ttf); }
 
+:root {
+  --font-size-xs: clamp(0.75rem, calc(0.125vw + 0.703rem), 0.813rem);
+  --font-size-s: clamp(0.813rem, calc(2.5vw + 0.344rem), 1.125rem);
+  --font-size-m: clamp(1.125rem, calc(1.5vw + 0.563rem), 1.9rem); }
+
 body {
   font-family: customFont, sans-serif;
   background-image: url("../assets/images/bg-main-mobile.png");
@@ -102,7 +107,7 @@ label {
   display: block;
   margin-bottom: 0.5rem;
   color: #21092f;
-  font-size: 0.813rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 1.5px;
   text-transform: uppercase; }
 
@@ -118,19 +123,24 @@ input {
     color: #8e8593; }
   input[type='text'] {
     color: #21092f; }
-  input:focus {
+  input:focus-within {
     border: 1px solid #5f0594; }
 
 fieldset {
   border: none;
   padding: 0;
-  width: 60%;
   display: flex;
   gap: 0.5rem; }
+  @media only screen and (min-width: 20em) {
+    fieldset {
+      width: 90%; } }
+  @media only screen and (min-width: 37.5em) {
+    fieldset {
+      width: 60%; } }
 
 legend {
   color: #21092f;
-  font-size: 0.813rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-bottom: 0.5rem; }
@@ -209,6 +219,7 @@ button {
       margin: 0 -10px 0 0; } }
   @media only screen and (min-width: 75em) {
     .main__card__front {
+      width: 105%;
       margin: 0 200px 0 0;
       z-index: 0; } }
   @media only screen and (min-width: 87.5em) {
@@ -236,6 +247,7 @@ button {
       margin: 0 -60px 0 0; } }
   @media only screen and (min-width: 75em) {
     .main__card__back {
+      width: 105%;
       margin: 0 0 0 0; } }
   @media only screen and (min-width: 87.5em) {
     .main__card__back {
@@ -249,17 +261,24 @@ button {
 
 .main__card__info {
   height: 100%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
   top: 0;
-  padding: 1.5rem; }
+  padding: 1rem; }
+  @media only screen and (min-width: 56.25em) {
+    .main__card__info {
+      width: 100%; } }
+  @media only screen and (min-width: 87.5em) {
+    .main__card__info {
+      padding: 1.5rem; } }
 
 .main__card__logo {
   width: 20%; }
 
-.main__details {
+.main__card__details {
   color: white;
   display: flex;
   flex-direction: column;
@@ -267,16 +286,35 @@ button {
   gap: 1rem; }
 
 .main__card__number {
-  font-size: 1.9rem;
+  font-size: var(--font-size-s);
   letter-spacing: 2px;
   font-weight: 300; }
+  @media only screen and (min-width: 37.5em) {
+    .main__card__number {
+      font-size: var(--font-size-m); } }
 
 .main__card__span {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 2px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  text-transform: uppercase;
+  align-items: center; }
+
+.main__card__back__info {
+  color: white;
+  font-size: var(--font-size-xs);
+  position: absolute;
+  top: 40%;
+  right: 35px;
   letter-spacing: 2px; }
+  @media only screen and (min-width: 20em) {
+    .main__card__back__info {
+      top: 45%;
+      right: 35px; } }
+  @media only screen and (min-width: 37.5em) {
+    .main__card__back__info {
+      right: 60px; } }
 
 .main__forms {
   width: 90%; }
@@ -321,10 +359,47 @@ button {
 .main__control__dates {
   display: flex;
   flex-direction: row;
-  width: 100%; }
+  width: 60%; }
+  @media only screen and (min-width: 20em) {
+    .main__control__dates {
+      width: 100%; } }
   @media only screen and (min-width: 37.5em) {
     .main__control__dates {
       width: 50%; } }
   @media only screen and (min-width: 93.75em) {
     .main__control__dates {
       width: 60%; } }
+
+.main__complete__form {
+  font-size: var(--font-size-s);
+  width: 90%;
+  margin-top: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem; }
+  @media only screen and (min-width: 37.5em) {
+    .main__complete__form {
+      width: 70%;
+      padding: 1rem; } }
+  @media only screen and (min-width: 50em) {
+    .main__complete__form {
+      width: 60%;
+      margin-top: 0; } }
+  @media only screen and (min-width: 56.25em) {
+    .main__complete__form {
+      width: 100%; } }
+  @media only screen and (min-width: 87.5em) {
+    .main__complete__form {
+      width: 35%; } }
+
+.complete__message1 {
+  font-weight: 300;
+  color: #21092f; }
+
+.complete__message2 {
+  color: #8e8593; }
+
+.hidden {
+  display: none; }

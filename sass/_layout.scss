@@ -1,5 +1,4 @@
 .main {
-  // border: 1px solid red;
   width: 100%;
   margin-top: 2rem;
   max-width: 56.25rem;
@@ -13,9 +12,7 @@
   }
 
   @include respond(tablet) {
-    // justify-content: space-around;
     gap: 10rem;
-    // margin-top: 0;
   }
 
   @include respond(laptop-portrait) {
@@ -33,18 +30,12 @@
 }
 
 .main__card {
-  // border: 1px solid blue;
   width: 100%;
-  // margin-top: 2rem;
-  // position: relative;
   display: flex;
   flex-direction: column-reverse;
-  // justify-content: center;
   align-items: center;
-  // gap: 1.5rem;
 
   @include respond(tablet) {
-    // margin-right: -120px;
     justify-content: center;
   }
 
@@ -55,14 +46,11 @@
   }
 
   @include respond(desktop) {
-    // margin: 0 250px 0 0;
     width: 50%;
   }
 }
 
 .main__card__front {
-  // width: 100%; // larger screen
-  // margin-left: -220px;
   position: relative;
   width: 80%;
   margin-top: -70px;
@@ -85,12 +73,12 @@
   }
 
   @include respond(laptop-landscape) {
+    width: 105%;
     margin: 0 200px 0 0;
     z-index: 0;
   }
 
   @include respond(desktop) {
-    // margin: 0 250px 0 0;
     width: 75%;
   }
 
@@ -103,8 +91,6 @@
   position: relative;
   width: 80%;
   margin-right: -45px;
-  // border: 1px solid lime;
-  // width: 100%; // larger screen
   @include respond(phone) {
     width: 60%;
     margin-right: -105px;
@@ -121,6 +107,7 @@
   }
 
   @include respond(laptop-landscape) {
+    width: 105%;
     margin: 0 0 0 0;
   }
 
@@ -139,20 +126,28 @@
 
 .main__card__info {
   height: 100%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
   top: 0;
-  padding: 1.5rem;
-  // border: 1px solid lime;
+  padding: 1rem;
+
+  @include respond(laptop-portrait) {
+    width: 100%;
+  }
+
+  @include respond(desktop) {
+    padding: 1.5rem;
+  }
 }
 
 .main__card__logo {
   width: 20%;
 }
 
-.main__details {
+.main__card__details {
   color: $color-secondary-light;
   display: flex;
   flex-direction: column;
@@ -161,23 +156,44 @@
 }
 
 .main__card__number {
-  font-size: 1.9rem;
+  font-size: var(--font-size-s);
   letter-spacing: 2px;
   font-weight: 300;
+
+  @include respond(phone) {
+    font-size: var(--font-size-m);
+  }
 }
 
 .main__card__span {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 2px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-transform: uppercase;
+}
+
+.main__card__back__info {
+  color: $color-secondary-light;
+  font-size: var(--font-size-xs);
+  position: absolute;
+  top: 40%;
+  right: 35px;
   letter-spacing: 2px;
+
+  @include respond(phone-xs) {
+    top: 45%;
+    right: 35px;
+  }
+
+  @include respond(phone) {
+    right: 60px;
+  }
 }
 
 .main__forms {
   width: 90%;
-  // border: 1px solid lime;
-  // padding: 1rem;
 
   @include respond(phone) {
     width: 70%;
@@ -190,22 +206,15 @@
 
   @include respond(laptop-portrait) {
     width: 100%;
-    // padding: 1.5rem;
   }
 
   @include respond(desktop) {
-    // margin: 0 250px 0 0;
     width: 35%;
   }
 }
 
 .main__control {
-  // border: 1px solid yellow;
   position: relative;
-
-  // &.error {
-  //   margin-bottom: 1rem;
-  // }
 
   &.error input {
     border: 1px solid $error;
@@ -241,13 +250,14 @@
 
 .main__control__dates {
   // border: 1px solid lime;
-
-  // TODO
   display: flex;
   flex-direction: row;
-  width: 100%;
-  // gap: 0.5rem;
-  // width: 50%; // larger screeen
+  width: 60%;
+
+  @include respond(phone-xs) {
+    width: 100%;
+  }
+
   @include respond(phone) {
     width: 50%;
   }
@@ -255,4 +265,47 @@
   @include respond(desktop-m) {
     width: 60%;
   }
+}
+
+// Complete
+.main__complete__form {
+  font-size: var(--font-size-s);
+  width: 90%;
+  margin-top: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  @include respond(phone) {
+    width: 70%;
+    padding: 1rem;
+  }
+
+  @include respond(tablet) {
+    width: 60%;
+    margin-top: 0;
+  }
+
+  @include respond(laptop-portrait) {
+    width: 100%;
+  }
+
+  @include respond(desktop) {
+    width: 35%;
+  }
+}
+
+.complete__message1 {
+  font-weight: 300;
+  color: $color-tertiary-dark;
+}
+
+.complete__message2 {
+  color: $color-tertiary-light;
+}
+
+.hidden {
+  display: none;
 }
