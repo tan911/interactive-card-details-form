@@ -64,7 +64,7 @@ The initial idea that sprang to mind was to use both cards' absolute positions a
 
 I then made the decision to utilize flexbox to center the content of the body element. And then used flexbox inside that content to separate the cards and forms, and I used negative margins for both cards for alignment.
 
-I visited Slack community to inquire about where to place those cards and whether or not to use position absolute. However, they are happy to offer guidance as to whether using negative margins or transforms is preferable. I then told myself that I was absolutely right about where I should place the cards.
+I visited Slack community to inquire about where to place those cards and whether or not to use position absolute. However, they are happy to offer guidance as to whether using negative margins or transforms is preferable. I then told myself that I was absolutely right about where I should place the cards 😂.
 
 I picked up how to control two connected parts. The right parts (card) must be altered dynamically dependent on the user's input (the left card). But I can overcome such obstacles by coming up with a solution. However, the approach in which I put these solutions into practice still requires work.
 
