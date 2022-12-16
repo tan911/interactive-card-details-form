@@ -63,7 +63,7 @@ select {
 
 @font-face {
   font-family: customFont;
-  src: url(../../assets/font/SpaceGrotesk-Medium.ttf); }
+  src: url(../assets/font/SpaceGrotesk-Medium.ttf); }
 
 :root {
   --font-size-xs: clamp(0.75rem, calc(0.125vw + 0.703rem), 0.813rem);
