@@ -174,7 +174,19 @@ const updateCard = cards => {
     for (let k = 0; k < cards.length; k++) {
       inputs[i].addEventListener('keyup', e => {
         if (inputs[i].className === cards[k].className) {
-          cards[k].textContent = e.target.value;
+          // If the user input is empty terminate the loop
+          if (e.target.value === '') return;
+
+          // Check if the user input equal to card number, Then only apply into a card number
+          if (inputs[i].className === mainNumber.className) {
+            // Using this regex match will separate the input value with 4 characters and then return into an array.
+            // The join function will concatenate all the array with separated spaces
+            cards[k].textContent = e.target.value.match(/.{1,4}/g).join(' ');
+
+            // This will apply the rest except the card number
+          } else {
+            cards[k].textContent = e.target.value;
+          }
         }
       });
     }
@@ -229,3 +241,8 @@ const init = e => {
 };
 
 btn.addEventListener('click', init);
+
+const hello = '1234567891870000';
+let separated = hello.split('');
+
+console.log(hello.match(/.{1,4}/g).join(' '));
