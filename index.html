@@ -27,13 +27,17 @@
             <img
               class="main__card__logo"
               src="./assets/images/card-logo.svg"
-              alt="logo"
+              alt=""
             />
-            <div class="main__details">
+            <div class="main__card__details">
               <p class="main__card__number">0000 0000 0000 0000</p>
               <div class="main__card__span">
                 <p class="main__card__name">jane appleseed</p>
-                <p class="main__card__date"><span>00</span>/<span>00</span></p>
+                <p class="main__card__date">
+                  <span class="main__month">00</span>/<span class="main__year"
+                    >00</span
+                  >
+                </p>
               </div>
             </div>
           </div>
@@ -44,6 +48,9 @@
             src="./assets/images/bg-card-back.png"
             alt="card back"
           />
+          <div class="main__card__back__info">
+            <p class="main__cvc">123</p>
+          </div>
         </div>
       </div>
       <div class="main__forms">
@@ -52,10 +59,12 @@
             <label for="name">cardholder name</label>
             <input
               id="name"
+              class="main__card__name"
               type="text"
               name="cardname"
               aria-describedby="name-required"
               placeholder="e.g. Jovan Lanutan"
+              maxlength="30"
             />
             <small id="name-required" aria-live="polite"
               >Wrong format, numbers only</small
@@ -65,10 +74,12 @@
             <label for="number">card number</label>
             <input
               id="number"
+              class="main__card__number"
               type="text"
               name="cardname"
               aria-describedby="number-required"
               placeholder="e.g. 1234 5678 9123 0000"
+              maxlength="19"
             />
             <small id="number-required" aria-live="polite"></small>
           </div>
@@ -79,6 +90,7 @@
                 <label for="month" class="sr-only">month</label>
                 <input
                   id="month"
+                  class="main__month"
                   type="text"
                   aria-describedby="required-input"
                   placeholder="MM"
@@ -89,6 +101,7 @@
                 <label for="year" class="sr-only">year</label>
                 <input
                   id="year"
+                  class="main__year"
                   type="text"
                   aria-describedby="required-input"
                   placeholder="YY"
@@ -101,6 +114,7 @@
               <label for="cvc">cvc</label>
               <input
                 id="cvc"
+                class="main__cvc"
                 type="text"
                 aria-describedby="required-cvc"
                 placeholder="e.g 123"
@@ -111,6 +125,16 @@
           </div>
           <button type="button" id="btn">confirm</button>
         </form>
+      </div>
+      <div class="main__complete__form hidden">
+        <div>
+          <img src="./assets/images/icon-complete.svg" alt="" />
+        </div>
+        <div class="complete__info">
+          <h1 class="complete__message1">thank you!</h1>
+          <p class="complete__message2">We've added your card details</p>
+        </div>
+        <button type="button">continue</button>
       </div>
     </main>
   </body>
