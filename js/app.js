@@ -179,9 +179,29 @@ const updateCard = cards => {
 
           // Check if the user input equal to card number, Then only apply into a card number
           if (inputs[i].className === mainNumber.className) {
+            // I saw someone in fronendmentor who also take this challenges and I amaze she manage to find this in stackoverflow(I'm not sure bout this)
+            // Thanks to her also stack overflow ----->
+
+            // Separating the value by 4 characters
+            e.target.value = e.target.value
+              .replace(/\s?/g, '')
+              .replace(/(\d{4})/g, '$1 ')
+              .trim();
+
+            // Update the dom
+            cards[k].textContent = e.target.value
+              .replace(/\s?/g, '')
+              .replace(/(\d{4})/g, '$1 ')
+              .trim();
+
+            // This my prev code solution for separating the card number also thanks to stackoverflow for this. However it only apply in card number which only manipulate the dom (I dont know how to apply it in input fields).
+            ////////////////////////////
+            // cards[k].textContent = e.target.value.match(/.{1,4}/g).join(' ');
+
             // Using this regex match will separate the input value with 4 characters and then return into an array.
             // The join function will concatenate all the array with separated spaces
-            cards[k].textContent = e.target.value.match(/.{1,4}/g).join(' ');
+            ////////////////////////////
+            // cards[k].textContent = e.target.value.match(/.{1,4}/g).join(' ');
 
             // This will apply the rest except the card number
           } else {
@@ -241,8 +261,3 @@ const init = e => {
 };
 
 btn.addEventListener('click', init);
-
-const hello = '1234567891870000';
-let separated = hello.split('');
-
-console.log(hello.match(/.{1,4}/g).join(' '));
